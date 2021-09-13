@@ -4,19 +4,15 @@ const express = require('express');
 
 const app = express();
 
+const routes = require('./routes/index.js');
+
 const PORT = process.env.PORT;
 
-app.get('/students', (req, res) => {
-  console.log(req);
+let students = [];
 
-  res.status(203).send('this is students route');
-});
+app.use(express.json());
 
-app.post('/api/v1/orders', (req, res) => {
-  console.log(req.body);
-
-  res.send(`POST METHOD WORKED ON ${req.url}`);
-});
+app.use('/makers', routes);
 
 app.listen(PORT, () => {
   console.log(`server running on port ${PORT}`);
