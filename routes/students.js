@@ -5,6 +5,8 @@ const router = express.Router();
 
 let students = [];
 
+//Отдели роуты от actions
+
 router.get('/', (req, res) => {
   res.set({
     'Content-Type': 'application/json',
